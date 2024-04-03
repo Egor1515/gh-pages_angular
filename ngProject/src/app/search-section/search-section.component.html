@@ -1,18 +1,22 @@
 <div class="wrapper">
 
-    <tui-input >
-        <tui-icon
-        icon="tuiIconSearch"
-        ></tui-icon>
-        Name, fragment or date</tui-input>
+    <tui-input
+    tuiHintDirection="bottom-right"
+    tuiTextfieldIconLeft="tuiIconSearchLarge"
+    class="input">
+    Name, fragment or date
+    <input
+    placeholder="Type your data"
+        tuiTextfield
+    />
+</tui-input>
+
     <button tuiButton>
         Search
-    </button>   
-    
+    </button>
+
     <button tuiButton>
-        <tui-icon
-        icon="tuiIconPlus"
-        ></tui-icon>
+        <tui-icon icon="tuiIconPlus"></tui-icon>
         Add Course
     </button>
 </div>
