@@ -1,5 +1,5 @@
 import { NgDompurifySanitizer } from "@tinkoff/ng-dompurify";
-import { TUI_SANITIZER } from "@taiga-ui/core";
+import { TUI_SANITIZER, TuiRootModule } from "@taiga-ui/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
@@ -10,6 +10,8 @@ import { CourseListModule } from './course-list/course-list.module';
 import { FooterModule } from "./footer/footer.module";
 import { HeaderModule } from "./header/header.module";
 import { SearchSectionModule } from "./search-section/search-section.module";
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,9 +21,11 @@ import { SearchSectionModule } from "./search-section/search-section.module";
     AppRoutingModule,
     CourseListModule,
     BrowserAnimationsModule,
-    FooterModule, 
+    FooterModule,
     HeaderModule,
-     SearchSectionModule,
+    SearchSectionModule,
+    TuiRootModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),

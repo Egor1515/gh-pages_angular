@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header.component';
-import { ALL_TAIGA_UI_MODULES } from '../all-taiga-modules';
-import { TuiButtonModule } from '@taiga-ui/core';
+import { TuiButtonModule, TuiLinkModule } from '@taiga-ui/core';
+import { TuiIconModule } from '@taiga-ui/experimental';
 
 
 @NgModule({
   declarations: [HeaderComponent],
   imports: [
     CommonModule,
-    TuiButtonModule
+    TuiButtonModule,
+    TuiIconModule,
+    TuiLinkModule
   ]
   , exports: [HeaderComponent]
 })
