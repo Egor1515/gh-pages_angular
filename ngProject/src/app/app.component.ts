@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ngProject';
+  onAddMore(){
+    console.log('Btn Clicked')
+  }
 }
