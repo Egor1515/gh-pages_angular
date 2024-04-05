@@ -1,1 +1,27 @@
-<p>search-section works!</p>
+<div class="wrapper">
+  <div class="left-block">
+    <tui-input
+      tuiHintDirection="bottom-right"
+      tuiTextfieldIconLeft="tuiIconSearchLarge"
+      class="input"
+      [(ngModel)]="inputValue"
+    >
+      Name, fragment or date
+    </tui-input>
+    <button
+      class="search-btn"
+      appearance="secondary"
+      tuiButton
+      (click)="onSearch()"
+    >
+      Search
+    </button>
+  </div>
+
+  <div class="right-block">
+    <button tuiButton>
+      <tui-icon icon="tuiIconPlus"></tui-icon>
+      Add Course
+    </button>
+  </div>
+</div>
