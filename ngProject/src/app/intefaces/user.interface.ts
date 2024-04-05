@@ -1,5 +1,5 @@
 interface User {
-    readonly id: string,
-    readonly firstName: string,
-    readonly lastname: string
+  readonly id: string;
+  readonly firstName: string;
+  readonly lastname: string;
 }

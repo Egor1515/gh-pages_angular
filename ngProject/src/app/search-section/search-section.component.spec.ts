@@ -8,10 +8,9 @@ describe('SearchSectionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SearchSectionComponent]
-    })
-    .compileComponents();
-    
+      declarations: [SearchSectionComponent],
+    }).compileComponents();
+
     fixture = TestBed.createComponent(SearchSectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -4,15 +4,9 @@ import { HeaderComponent } from './header.component';
 import { TuiButtonModule, TuiLinkModule } from '@taiga-ui/core';
 import { TuiIconModule } from '@taiga-ui/experimental';
 
-
 @NgModule({
   declarations: [HeaderComponent],
-  imports: [
-    CommonModule,
-    TuiButtonModule,
-    TuiIconModule,
-    TuiLinkModule
-  ]
-  , exports: [HeaderComponent]
+  imports: [CommonModule, TuiButtonModule, TuiIconModule, TuiLinkModule],
+  exports: [HeaderComponent],
 })
-export class HeaderModule { }
+export class HeaderModule {}

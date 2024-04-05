@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SearchSectionComponent } from './search-section.component';
 import { TuiInputModule } from '@taiga-ui/kit';
-import { TuiButtonModule, TuiHintModule, TuiTextfieldControllerModule } from '@taiga-ui/core';
+import {
+  TuiButtonModule,
+  TuiHintModule,
+  TuiTextfieldControllerModule,
+} from '@taiga-ui/core';
 import { TuiIconModule } from '@taiga-ui/experimental';
 import { FormsModule } from '@angular/forms';
-
 
 @NgModule({
   declarations: [SearchSectionComponent],
@@ -16,10 +19,8 @@ import { FormsModule } from '@angular/forms';
     TuiIconModule,
     TuiHintModule,
     TuiTextfieldControllerModule,
-    FormsModule
+    FormsModule,
   ],
-  exports: [SearchSectionComponent]
+  exports: [SearchSectionComponent],
 })
-export class SearchSectionModule {
-
-}
+export class SearchSectionModule {}

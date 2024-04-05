@@ -1,27 +1,17 @@
 <header>
-    <div class="header_block">
-        <div class="left-block">
-            <img src="../../assets/logo.png" alt="">
-        </div>
-        <div class="right-block">
-            <button tuiButton class="nickname" appearance="none">
-                <tui-icon
-                class="star-icon"
-                icon="tuiIconStar"
-                >
-            </tui-icon>
-                Nikolay Ivanov
-            </button>
-            <a href=""
-            tuiLink
-            routerLink=""
-            >
-            <tui-icon
-            icon="tuiIconCheckSquareLarge"
-            >
-        </tui-icon>
-            Log out
-            </a>
-        </div>
+  <div class="header_block">
+    <div class="left-block">
+      <img src="../../assets/logo.png" alt="Coursenta logo" />
     </div>
+    <div class="right-block">
+      <button class="nick-name" tuiButton size="l" appearance="none" [style.color]="'#1B1F3BCC'">
+        <tui-icon class="starIcon"  [style.color]="'var(--tui-primary)'" icon="tuiIconStar"> </tui-icon>
+        Nikolay Ivanov
+      </button>
+      <a href="#" tuiLink routerLink="#" [style.color]="'var(--tui-primary)'">
+        <tui-icon icon="tuiIconCheckSquareLarge"> </tui-icon>
+        Log out
+      </a>
+    </div>
+  </div>
 </header>

@@ -7,9 +7,7 @@ import { TuiBadgeModule } from '@taiga-ui/kit';
 
 @NgModule({
   declarations: [CourseListComponent],
-  imports: [
-    CommonModule, TuiButtonModule, TuiIconModule,TuiBadgeModule
-  ],
-  exports: [CourseListComponent]
+  imports: [CommonModule, TuiButtonModule, TuiIconModule, TuiBadgeModule],
+  exports: [CourseListComponent],
 })
-export class CourseListModule { }
+export class CourseListModule {}
