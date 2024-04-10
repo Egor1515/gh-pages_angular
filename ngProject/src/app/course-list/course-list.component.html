@@ -1,35 +1,35 @@
 <tui-island [hoverable]="true" *ngFor="let course of courses">
-<div class="main-block">
-  <div class="upper-block">
-    <div class="date-block">{{course.creationDate}}</div>
-    <div class="course-info">
-      <div class="course-name">
-        {{course.name}}
-      </div>
-      <div class="course-duration">
-        <tui-badge [style.padding]="'20px'" [style.backgroundColor]="'#79818C1F'" [style.color]="'#000000'"> 1 h 28
-          min
-        </tui-badge>
-      </div>
-      <div class="course-icon">
-        <tui-icon *ngIf="course.starred" icon="tuiIconStar" [style.margin-left]="'10px'"></tui-icon>
+  <div class="main-block">
+    <div class="upper-block">
+      <div class="date-block">{{course.creationDate}}</div>
+      <div class="course-info">
+        <div class="course-name">
+          <tui-line-clamp [content]="course.name" [linesLimit]="1">
+          </tui-line-clamp>
+        </div>
+        <div class="course-duration">
+          <tui-badge [style.padding]="'20px'" [style.backgroundColor]="'#79818C1F'" [style.color]="'#000000'"> 1 h 28
+            min
+          </tui-badge>
+        </div>
+        <div class="course-icon">
+          <tui-icon *ngIf="course.starred" icon="tuiIconStar" [style.margin-left]="'10px'"></tui-icon>
+        </div>
       </div>
     </div>
+    <div class="text-block">
+      <tui-line-clamp [content]="course.description" [linesLimit]="4">
+      </tui-line-clamp>
+    </div>
   </div>
-  <div class="text-block">
-    <p>
-      {{course.description}}
-    </p>
+  <div class="btn-group">
+    <button tuiButton appearance="secondary" class="edit-btn">
+      <tui-icon icon="tuiIconEdit"></tui-icon>
+      Edit
+    </button>
+    <button (click)="onDeleteCourse(course.id)" size="l" tuiButton appearance="secondary-destructive">
+      <tui-icon icon="tuiIconTrash"></tui-icon>
+      Delete
+    </button>
   </div>
-</div>
-<div class="btn-group">
-  <button tuiButton appearance="secondary" class="edit-btn">
-    <tui-icon icon="tuiIconEdit"></tui-icon>
-    Edit
-  </button>
-  <button (click)="onDeleteCourse(course.id)" size="l" tuiButton appearance="secondary-destructive">
-    <tui-icon icon="tuiIconTrash"></tui-icon>
-    Delete
-  </button>
-</div>
 </tui-island>

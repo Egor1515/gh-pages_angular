@@ -1,10 +1,25 @@
 export const mocks = [
     {
         id: 1,
-        name: 'Video Course 1',
+        name: 'Super long title of difficult video course about programming and frontend development and more more more more text ahead and ahead and ahead',
         creationDate: '02.29.2018',
         duration: '1 h 28 min',
         description: `Create a repository at github/bitbucket
+                     Install ng-cli: npm install -g angular/cli
+                     Use ng-cli to create initial a project
+                     Run the project by executing “ng serve”
+                     Explore a project structure
+                     Setup TS lint according to your preferences (indentation, spacing...)Create a repository at github/bitbucket
+                     Install ng-cli: npm install -g angular/cli
+                     Use ng-cli to create initial a project
+                     Run the project by executing “ng serve”
+                     Explore a project structure
+                     Setup TS lint according to your preferences (indentation, spacing...)Create a repository at github/bitbucket
+                     Install ng-cli: npm install -g angular/cli
+                     Use ng-cli to create initial a project
+                     Run the project by executing “ng serve”
+                     Explore a project structure
+                     Setup TS lint according to your preferences (indentation, spacing...)Create a repository at github/bitbucket
                      Install ng-cli: npm install -g angular/cli
                      Use ng-cli to create initial a project
                      Run the project by executing “ng serve”
@@ -21,7 +36,12 @@ export const mocks = [
         description: `Learn TypeScript basics
                      Build components and services
                      Implement routing and navigation
-                     Work with forms and HTTP requests`,
+                     Work with forms and HTTP requestsCreate a repository at github/bitbucket
+                     Install ng-cli: npm install -g angular/cli
+                     Use ng-cli to create initial a project
+                     Run the project by executing “ng serve”
+                     Explore a project structure
+                     Setup TS lint according to your preferences (indentation, spacing...)`,
         starred: false
     },
     {
@@ -32,7 +52,12 @@ export const mocks = [
         description: `Understand Angular architecture
                      Create reusable components
                      Manage state with NgRx
-                     Deploy Angular applications`,
+                     Deploy Angular applicationsCreate a repository at github/bitbucket
+                     Install ng-cli: npm install -g angular/cli
+                     Use ng-cli to create initial a project
+                     Run the project by executing “ng serve”
+                     Explore a project structure
+                     Setup TS lint according to your preferences (indentation, spacing...)`,
         starred: false
     },
     {
@@ -42,7 +67,12 @@ export const mocks = [
         duration: '2 h 30 min',
         description: `Compare React and Angular
                      Learn their pros and cons
-                     Choose the right framework for your project`,
+                     Choose the right framework for your projectCreate a repository at github/bitbucket
+                     Install ng-cli: npm install -g angular/cli
+                     Use ng-cli to create initial a project
+                     Run the project by executing “ng serve”
+                     Explore a project structure
+                     Setup TS lint according to your preferences (indentation, spacing...)`,
         starred: false
     },
     {
@@ -52,17 +82,27 @@ export const mocks = [
         duration: '1 h 45 min',
         description: `Explore Node.js fundamentals
                      Build RESTful APIs with Express
-                     Use MongoDB for database operations`,
+                     Use MongoDB for database operationsCreate a repository at github/bitbucket
+                     Install ng-cli: npm install -g angular/cli
+                     Use ng-cli to create initial a project
+                     Run the project by executing “ng serve”
+                     Explore a project structure
+                     Setup TS lint according to your preferences (indentation, spacing...)`,
         starred: false
     },
     {
         id: 6,
-        name: 'Full Stack Development',
+        name: 'Full Stack Development ',
         creationDate: '07.15.2018',
         duration: '4 h 20 min',
         description: `Master frontend and backend development
                      Build and deploy full-stack applications
-                     Understand the DevOps workflow`,
+                     Understand the DevOps workflowCreate a repository at github/bitbucket
+                     Install ng-cli: npm install -g angular/cli
+                     Use ng-cli to create initial a project
+                     Run the project by executing “ng serve”
+                     Explore a project structure
+                     Setup TS lint according to your preferences (indentation, spacing...)`,
         starred: false
     },
     {
