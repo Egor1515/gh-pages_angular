@@ -1,6 +1,6 @@
 export const mocks = [
     {
-        id: 1,
+        id: '1',
         name: 'Super long title of difficult video course about programming and frontend development and more more more more text ahead and ahead and ahead',
         creationDate: '02.29.2018',
         duration: '1 h 28 min',
@@ -29,7 +29,7 @@ export const mocks = [
         starred: true
     },
     {
-        id: 2,
+        id: '2',
         name: 'Video Course 2',
         creationDate: '03.15.2018',
         duration: '2 h 15 min',
@@ -45,7 +45,7 @@ export const mocks = [
         starred: false
     },
     {
-        id: 3,  
+        id: '3',  
         name: 'Angular Masterclass',
         creationDate: '04.20.2018',
         duration: '3 h 45 min',
@@ -61,7 +61,7 @@ export const mocks = [
         starred: false
     },
     {
-        id: 4,
+        id: '4',
         name: 'React vs Angular',
         creationDate: '05.10.2018',
         duration: '2 h 30 min',
@@ -76,7 +76,7 @@ export const mocks = [
         starred: false
     },
     {
-        id: 5,
+        id: '5',
         name: 'Node.js Crash Course',
         creationDate: '06.01.2018',
         duration: '1 h 45 min',
@@ -91,7 +91,7 @@ export const mocks = [
         starred: false
     },
     {
-        id: 6,
+        id: '6',
         name: 'Full Stack Development ',
         creationDate: '07.15.2018',
         duration: '4 h 20 min',
@@ -106,7 +106,7 @@ export const mocks = [
         starred: false
     },
     {
-        id: 7,
+        id: '7',
         name: 'JavaScript Algorithms',
         creationDate: '08.10.2018',
         duration: '2 h 55 min',

@@ -2,7 +2,7 @@
   <app-header></app-header>
   <div class="wrapper">
     <app-search-section></app-search-section>
-    <app-course-list (courseDeleted)="onCourseDeleted($event)"></app-course-list>
+    <app-course-list [courses]="courses" (courseDeleted)="onCourseDeleted($event)"></app-course-list>
     <button tuiButton appearance="secondary" (click)="onAddMore()">
       Load More
     </button>
