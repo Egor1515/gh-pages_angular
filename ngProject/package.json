@@ -7,6 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "jest --transformIgnorePatterns \"node_modules/(?!@toolz/allow)/\" --env=jsdom",
+    "test:coverage": "jest --transformIgnorePatterns \"node_modules/(?!@toolz/allow)/\" --env=jsdom --coverage --coverageReporters=\"html\"",
     "serve:ssr:ngProject": "node dist/ng-project/server/server.mjs",
     "lint": "ng lint"
   },

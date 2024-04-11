@@ -6,7 +6,7 @@ import { Course } from '../intefaces/course.interface';
   styleUrl: './course-list.component.less',
 })
 export class CourseListComponent implements OnInit {
-  @Input() courses!: Course[]
+  @Input() courses: Course[] = []
   @Output() courseDeleted = new EventEmitter<string>()
 
   constructor() { }
