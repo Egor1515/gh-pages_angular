@@ -1,46 +1,50 @@
-.wrapper {
-  display: flex;
-  justify-content: space-around;
-  max-width: 95%;
-  margin: 0 auto;
-  border: 1px solid rgba(74, 201, 155, 1);
-  border-radius: 18px;
-  padding: 32px 24px;
-  margin-bottom: 20px;
-}
-
-.wrapper .main-block {
-  display: flex;
-  flex-direction: column;
-}
-
-.wrapper .main-block .upper-block {
-  display: flex;
-  flex-direction: column;
-  max-width: 254px;
-}
-
-.wrapper .main-block .upper-block .course-info {
+.island {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  max-width: 92%;
+  margin: 0 auto 20px;
+  padding: 32px 24px;
 }
+
+.main-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 80%;
+  
+}
+
+.main-block .upper-block {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.main-block .upper-block .course-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+}
+
 .course-name {
   font-weight: bold;
   font-size: large;
+  margin-right: 10px;
 }
+
 .course-icon {
   color: var(--tui-link);
+  margin-right: 10px;
 }
 
 .btn-group {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px;
 }
 
 .text-block {
+  margin-top: 10px;
   font-size: 15px;
-  line-height: 24px;
-  width: 90%;
 }

@@ -1,24 +1,25 @@
-<div class="wrapper">
+<tui-island class="island" [hoverable]="true" *ngFor="let course of courses">
   <div class="main-block">
     <div class="upper-block">
-      <div class="date-block">02.29.2018</div>
+      <div class="date-block">{{course.creationDate}}</div>
       <div class="course-info">
-        <div class="course-name">Video Course 1</div>
+        <div class="course-name">
+          <tui-line-clamp [content]="course.name" [linesLimit]="1">
+          </tui-line-clamp>
+        </div>
         <div class="course-duration">
-          <tui-badge style="padding: 20px" [style.backgroundColor]="'#79818C1F'" [style.color]="'#000000'"> 1 h 28 min </tui-badge>
+          <tui-badge [style.padding]="'20px'" [style.backgroundColor]="'#79818C1F'" [style.color]="'#000000'"> 1 h 28
+            min
+          </tui-badge>
         </div>
         <div class="course-icon">
-          <tui-icon icon="tuiIconStar"></tui-icon>
+          <tui-icon *ngIf="course.starred" icon="tuiIconStar" [style.margin-left]="'10px'"></tui-icon>
         </div>
       </div>
     </div>
     <div class="text-block">
-      <p>
-        Create a repository at github/bitbucket Install ng-cli: npm install -g
-        angular/cli Use ng-cli to create initial a project Run the project by
-        executing “ng serve” Explore a project structure Setup TS lint according
-        to your preferences (indentation, spacing...)
-      </p>
+      <tui-line-clamp [content]="course.description" [linesLimit]="4">
+      </tui-line-clamp>
     </div>
   </div>
   <div class="btn-group">
@@ -26,9 +27,9 @@
       <tui-icon icon="tuiIconEdit"></tui-icon>
       Edit
     </button>
-    <button size="l" tuiButton appearance="secondary-destructive">
+    <button (click)="onDeleteCourse(course.id)" size="l" tuiButton appearance="secondary-destructive">
       <tui-icon icon="tuiIconTrash"></tui-icon>
       Delete
     </button>
   </div>
-</div>
+</tui-island>
