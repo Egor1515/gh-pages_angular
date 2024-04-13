@@ -10,10 +10,10 @@ export class AppComponent {
   title = 'ngProject';
   courses = mocks
   onAddMore() {
-    console.log('Btn Clicked');
+    return 'Btn Clicked';
   }
 
   onCourseDeleted(courseId: string) {
-    console.log(`Successfully deleted course number ${courseId}`)
+    return courseId;
   }
 }

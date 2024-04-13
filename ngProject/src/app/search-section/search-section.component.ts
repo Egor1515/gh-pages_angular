@@ -10,9 +10,8 @@ export class SearchSectionComponent {
 
   onSearch() {
     if (this.inputValue.length > 0) {
-      console.log(this.inputValue);
-      return;
+      return this.inputValue;
     }
-    console.error('The input is empty');
+    return null;
   }
 }

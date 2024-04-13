@@ -3,7 +3,7 @@ export const mocks = [
         id: '1',
         name: 'Super long title of difficult video course about programming and frontend development and more more more more text ahead and ahead and ahead',
         creationDate: '02.29.2018',
-        duration: '1 h 28 min',
+        duration: '1 h 29 min',
         description: `Create a repository at github/bitbucket
                      Install ng-cli: npm install -g angular/cli
                      Use ng-cli to create initial a project
@@ -71,7 +71,7 @@ export const mocks = [
         id: '5',
         name: 'Node.js Crash Course',
         creationDate: '06.01.2018',
-        duration: '1 h 45 min',
+        duration: '1 h 50 min',
         description: `Explore Node.js fundamentals
                      Build RESTful APIs with Express
                      Use MongoDB for database operationsCreate a repository at github/bitbucket
