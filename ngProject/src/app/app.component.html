@@ -2,12 +2,10 @@
   <app-header></app-header>
   <div class="wrapper">
     <app-search-section></app-search-section>
-    @if (courses) {
       <app-course-list [courses]="courses" (courseDeleted)="onCourseDeleted($event)"></app-course-list>
-    }
-    <!-- <button tuiButton class="addMoreBtn" appearance="secondary" (click)="onAddMore()">
+    <button tuiButton class="addMoreBtn" appearance="secondary" (click)="onAddMore()">
       Load More
-    </button> -->
+    </button>
     <app-footer></app-footer>
   </div>
 </tui-root>

@@ -2,8 +2,8 @@ export const mocks = [
     {
         id: '1',
         name: 'Super long title of difficult video course about programming and frontend development and more more more more text ahead and ahead and ahead',
-        creationDate: '02.29.2018',
-        duration: '1 h 29 min',
+        creationDate: new Date('02.29.2018'),
+        duration: 50,
         description: `Create a repository at github/bitbucket
                      Install ng-cli: npm install -g angular/cli
                      Use ng-cli to create initial a project
@@ -30,9 +30,9 @@ export const mocks = [
     },
     {
         id: '2',
-        name: 'Video Course 2',
-        creationDate: '03.15.2018',
-        duration: '2 h 15 min',
+        name: 'Video course 2',
+        creationDate: new Date('03.15.2019'),
+        duration: 60,
         description: `Learn TypeScript basics
                      Build components and services
                      Implement routing and navigation
@@ -46,17 +46,17 @@ export const mocks = [
     },
     {
         id: '3',  
-        name: 'Angular Masterclass',
-        creationDate: '04.20.2018',
-        duration: '3 h 45 min',
+        name: 'Angular masterclass',
+        creationDate: new Date('04.20.2020'),
+        duration: 70,
         description: `text`,
         starred: false
     },
     {
         id: '4',
-        name: 'React vs Angular',
-        creationDate: '05.10.2018',
-        duration: '2 h 30 min',
+        name: 'react vs angular',
+        creationDate: new Date('05.10.2021'),
+        duration: 80,
         description: `Compare React and Angular
                      Learn their pros and cons
                      Choose the right framework for your projectCreate a repository at github/bitbucket
@@ -69,9 +69,9 @@ export const mocks = [
     },
     {
         id: '5',
-        name: 'Node.js Crash Course',
-        creationDate: '06.01.2018',
-        duration: '1 h 50 min',
+        name: 'Node.js crash course',
+        creationDate: new Date('06.01.2022'),
+        duration: 90,
         description: `Explore Node.js fundamentals
                      Build RESTful APIs with Express
                      Use MongoDB for database operationsCreate a repository at github/bitbucket
@@ -84,9 +84,9 @@ export const mocks = [
     },
     {
         id: '6',
-        name: 'Full Stack Development ',
-        creationDate: '07.15.2018',
-        duration: '4 h 20 min',
+        name: 'Full stack development ',
+        creationDate: new Date('07.15.2023'),
+        duration: 100,
         description: `Master frontend and backend development
                      Build and deploy full-stack applications
                      Understand the DevOps workflowCreate a repository at github/bitbucket
@@ -100,8 +100,8 @@ export const mocks = [
     {
         id: '7',
         name: 'JavaScript Algorithms',
-        creationDate: '08.10.2018',
-        duration: '2 h 55 min',
+        creationDate: new Date('08.10.2024'),
+        duration: 110,
         description: `Implement common algorithms in JavaScript
                      Practice problem-solving skills
                      Prepare for technical interviews`,

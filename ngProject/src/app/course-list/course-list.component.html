@@ -1,14 +1,14 @@
   <tui-island class="island" [hoverable]="true" *ngFor="let course of courses">
     <div class="main-block">
       <div class="upper-block">
-        <div class="date-block">{{course.creationDate}}</div>
+        <div class="date-block">{{course.creationDate | date}}</div>
         <div class="course-info">
           <div class="course-name">
-            <tui-line-clamp [content]="course.name" [linesLimit]="1"></tui-line-clamp>
+            <tui-line-clamp [content]="course.name | titlecase" [linesLimit]="1"></tui-line-clamp>
           </div>
           <div class="course-duration">
             <tui-badge [style.padding]="'20px'" [style.backgroundColor]="'#79818C1F'" [style.color]="'#000000'">
-              {{course.duration}}
+              {{course.duration | timeFormatPipe}}
             </tui-badge>
           </div>
           <div class="course-icon">
