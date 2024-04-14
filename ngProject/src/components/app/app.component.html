@@ -1,7 +1,7 @@
 <tui-root>
   <app-header></app-header>
   <div class="wrapper">
-    <app-course-list [courses]="courses" (courseDeleted)="onCourseDeleted($event)"></app-course-list>
+    <app-course-list [courses]="courses" (deleteCourse)="ondeleteCourse($event)"></app-course-list>
     <app-footer></app-footer>
   </div>
 </tui-root>

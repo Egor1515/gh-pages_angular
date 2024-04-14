@@ -13,7 +13,6 @@ module.exports = {
         prefix: '<rootDir>/'
     }),
     collectCoverageFrom: [
-        // 'src/**/*.spec{.ts}',
-        '!**/**/*.html'
+        'src/**/*.{ts,js}',
     ]
 };

@@ -14,7 +14,7 @@ export class AppComponent {
     return 'Btn Clicked';
   }
   
-  onCourseDeleted(courseId: string) {
+  ondeleteCourse(courseId: string) {
     return courseId;
   }
 }

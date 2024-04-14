@@ -9,7 +9,7 @@ import { Course } from '../../interfaces/course.interface';
 export class CourseListComponent implements OnInit {
 
   @Input() courses: Course[] = []
-  @Output() courseDeleted = new EventEmitter<string>()
+  @Output() deleteCourse = new EventEmitter<string>()
 
   ngOnInit(): void {
     this.sortCourses()
@@ -24,7 +24,7 @@ export class CourseListComponent implements OnInit {
   }
 
   onDeleteCourse(courseId: string) {
-    this.courseDeleted.emit(courseId)
+    this.deleteCourse.emit(courseId)
   }
 
   onAddMore() {

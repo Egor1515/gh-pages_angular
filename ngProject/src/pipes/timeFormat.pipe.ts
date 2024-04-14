@@ -1,8 +1,9 @@
 
 import { Pipe, PipeTransform } from "@angular/core";
 
+
 @Pipe({
-    name: "timeFormatPipe"
+    name: "timeFormatPipe",
 })
 export class TimeFormatPipe implements PipeTransform {
     transform(minutes: number) {
