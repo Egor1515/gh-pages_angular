@@ -2,7 +2,7 @@ export const mocks = [
     {
         id: '1',
         name: 'Super long title of difficult video course about programming and frontend development and more more more more text ahead and ahead and ahead',
-        creationDate: new Date('02.29.2018'),
+        creationDate: new Date('04.13.2024'),
         duration: 50,
         description: `Create a repository at github/bitbucket
                      Install ng-cli: npm install -g angular/cli
@@ -26,12 +26,12 @@ export const mocks = [
                      Explore a project structure
                      Setup TS lint according to your preferences (indentation, spacing...)`,
         //Свойство для отображения изображения звезды при необходимости
-        starred: true
+        topRated: true
     },
     {
         id: '2',
         name: 'Video course 2',
-        creationDate: new Date('03.15.2019'),
+        creationDate: new Date('04.13.2024'),
         duration: 60,
         description: `Learn TypeScript basics
                      Build components and services
@@ -42,20 +42,20 @@ export const mocks = [
                      Run the project by executing “ng serve”
                      Explore a project structure
                      Setup TS lint according to your preferences (indentation, spacing...)`,
-        starred: false
+        topRated: true
     },
     {
         id: '3',  
         name: 'Angular masterclass',
-        creationDate: new Date('04.20.2020'),
+        creationDate: new Date('04.14.2024'),
         duration: 70,
         description: `text`,
-        starred: false
+        topRated: false
     },
     {
         id: '4',
         name: 'react vs angular',
-        creationDate: new Date('05.10.2021'),
+        creationDate: new Date('04.17.2024'),
         duration: 80,
         description: `Compare React and Angular
                      Learn their pros and cons
@@ -65,7 +65,7 @@ export const mocks = [
                      Run the project by executing “ng serve”
                      Explore a project structure
                      Setup TS lint according to your preferences (indentation, spacing...)`,
-        starred: false
+        topRated: false
     },
     {
         id: '5',
@@ -80,7 +80,7 @@ export const mocks = [
                      Run the project by executing “ng serve”
                      Explore a project structure
                      Setup TS lint according to your preferences (indentation, spacing...)`,
-        starred: false
+        topRated: true
     },
     {
         id: '6',
@@ -95,7 +95,7 @@ export const mocks = [
                      Run the project by executing “ng serve”
                      Explore a project structure
                      Setup TS lint according to your preferences (indentation, spacing...)`,
-        starred: false
+        topRated: false
     },
     {
         id: '7',
@@ -105,6 +105,6 @@ export const mocks = [
         description: `Implement common algorithms in JavaScript
                      Practice problem-solving skills
                      Prepare for technical interviews`,
-        starred: false
+        topRated: true
     }
 ];

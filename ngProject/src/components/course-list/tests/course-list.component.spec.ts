@@ -36,7 +36,7 @@
 //             creationDate: Date('04.20.2021',
 //             duration: '3 h 45 min',
 //             description: `text`,
-//             starred: false
+//             topRated: false
 //         }
 //         component.courses = [mock]
 //         fixture.detectChanges()
@@ -70,7 +70,7 @@
 //             creationDate: '04.20.2021',
 //             duration: '3 h 45 min',
 //             description: `text`,
-//             starred: true
+//             topRated: true
 //         }
 
 //         component.courses = [course]
@@ -113,7 +113,7 @@
 //                 creationDate: '04.20.2021',
 //                 duration: '3 h 45 min',
 //                 description: `text`,
-//                 starred: false
+//                 topRated: false
 //             },
 //             {
 //                 id: '2',
@@ -121,7 +121,7 @@
 //                 creationDate: '04.20.2019',
 //                 duration: '3 h 45 min',
 //                 description: `text`,
-//                 starred: false
+//                 topRated: false
 //             },
 //             {
 //                 id: '1',
@@ -129,7 +129,7 @@
 //                 creationDate: '04.20.2020',
 //                 duration: '3 h 45 min',
 //                 description: `text`,
-//                 starred: false
+//                 topRated: false
 //             },
 //         ];
 
@@ -152,7 +152,7 @@
 //                 creationDate: '04.20.2021',
 //                 duration: '3 h 45 min',
 //                 description: `text`,
-//                 starred: false
+//                 topRated: false
 //             }
 //         ]
 

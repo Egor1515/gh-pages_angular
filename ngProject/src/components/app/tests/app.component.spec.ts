@@ -56,7 +56,7 @@
 //                 creationDate: '04.20.2021',
 //                 duration: '3 h 45 min',
 //                 description: `text`,
-//                 starred: false
+//                 topRated: false
 //             }
 //         ]
 //         courseListFixture.detectChanges()

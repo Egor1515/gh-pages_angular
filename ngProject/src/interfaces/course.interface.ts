@@ -4,5 +4,5 @@ export interface Course {
   readonly creationDate: Date;
   readonly duration: number;
   readonly description: string;
-  readonly starred: boolean;
+  readonly topRated: boolean;
 }

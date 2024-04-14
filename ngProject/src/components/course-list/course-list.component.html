@@ -1,6 +1,6 @@
 <app-search-section [coursesList]="courses" (courseFilter)="filterCourses($event)"></app-search-section>
-<tui-island class="island" [hoverable]="true" *ngFor="let course of courses">
-  <div class="main-block">
+<tui-island class="island" [hoverable]="true" *ngFor="let course of courses" [creationDate]="course.creationDate" courseBorder [ngClass]="{'top-rated':course.topRated}">
+  <div class="main-block" >
     <div class="upper-block">
       <div class="date-block">{{course.creationDate | date}}</div>
       <div class="course-info">
@@ -13,7 +13,7 @@
           </tui-badge>
         </div>
         <div class="course-icon">
-          <tui-icon class="iconStar" *ngIf="course.starred" icon="tuiIconStar" [style.margin-left]="'10px'"
+          <tui-icon class="iconStar" *ngIf="course.topRated" icon="tuiIconStar" [style.margin-left]="'10px'"
             [style.fill]="'yellow'"></tui-icon>
         </div>
       </div>
@@ -35,8 +35,17 @@
     </button>
   </div>
 </tui-island>
+<div class="no-data-wrapper" *ngIf="courses.length === 0">
+  <div class="data-icon">
+      <tui-marker-icon mode="secondary" size="xl" src="tuiIconInfoLarge">
+      </tui-marker-icon>
+  </div>
+  <h2 tuiTitle class="data-title">No data</h2>
+  <div tuiSubtitle class="data-subtitle">Feel free to add new course</div>
+</div>
 <div class="btn_container">
   <button tuiButton class="loadMore" appearance="secondary" (click)="onAddMore()">
     Load More
   </button>
 </div>
+

@@ -11,5 +11,9 @@ module.exports = {
     coverageDirectory: 'coverage/angular-jest',
     moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
         prefix: '<rootDir>/'
-    })
+    }),
+    collectCoverageFrom: [
+        // 'src/**/*.spec{.ts}',
+        '!**/**/*.html'
+    ]
 };
