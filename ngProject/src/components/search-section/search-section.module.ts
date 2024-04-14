@@ -9,6 +9,7 @@ import {
 } from '@taiga-ui/core';
 import { TuiIconModule } from '@taiga-ui/experimental';
 import { FormsModule } from '@angular/forms';
+import { FilterCoursesPipe } from '../../pipes/filterCourses.pipe';
 
 @NgModule({
   declarations: [SearchSectionComponent],
@@ -21,6 +22,7 @@ import { FormsModule } from '@angular/forms';
     TuiTextfieldControllerModule,
     FormsModule,
   ],
+  providers:[FilterCoursesPipe],
   exports: [SearchSectionComponent],
 })
 export class SearchSectionModule {}

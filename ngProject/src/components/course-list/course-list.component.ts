@@ -1,15 +1,15 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { Course } from '../intefaces/course.interface';
+import { Course } from '../../interfaces/course.interface';
+
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.less',
 })
 export class CourseListComponent implements OnInit {
+
   @Input() courses: Course[] = []
   @Output() courseDeleted = new EventEmitter<string>()
-
-  constructor() { }
 
   ngOnInit(): void {
     this.sortCourses()
@@ -25,5 +25,13 @@ export class CourseListComponent implements OnInit {
 
   onDeleteCourse(courseId: string) {
     this.courseDeleted.emit(courseId)
+  }
+
+  onAddMore() {
+    return 'Btn Clicked';
+  }
+
+  filterCourses(filteredCourses:Course[]){
+    return this.courses = [...filteredCourses]
   }
 }

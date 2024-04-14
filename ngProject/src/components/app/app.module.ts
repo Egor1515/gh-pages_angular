@@ -9,14 +9,14 @@ import {
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CourseListModule } from './course-list/course-list.module';
-import { FooterModule } from './footer/footer.module';
-import { HeaderModule } from './header/header.module';
-import { SearchSectionModule } from './search-section/search-section.module';
+import { CourseListModule } from '../course-list/course-list.module';
+import { FooterModule } from '../footer/footer.module';
+import { HeaderModule } from '../header/header.module';
+import { SearchSectionModule } from '../search-section/search-section.module';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,10 +29,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     TuiButtonModule,
   ],
-  providers: [
-    provideClientHydration(),
-    { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },
-  ],
+  providers: [provideClientHydration(), { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

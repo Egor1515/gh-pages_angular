@@ -1,0 +1,42 @@
+<app-search-section [coursesList]="courses" (courseFilter)="filterCourses($event)"></app-search-section>
+<tui-island class="island" [hoverable]="true" *ngFor="let course of courses">
+  <div class="main-block">
+    <div class="upper-block">
+      <div class="date-block">{{course.creationDate | date}}</div>
+      <div class="course-info">
+        <div class="course-name">
+          <tui-line-clamp [content]="course.name | titlecase" [linesLimit]="1"></tui-line-clamp>
+        </div>
+        <div class="course-duration">
+          <tui-badge [style.padding]="'20px'" [style.backgroundColor]="'#79818C1F'" [style.color]="'#000000'">
+            {{course.duration | timeFormatPipe}}
+          </tui-badge>
+        </div>
+        <div class="course-icon">
+          <tui-icon class="iconStar" *ngIf="course.starred" icon="tuiIconStar" [style.margin-left]="'10px'"
+            [style.fill]="'yellow'"></tui-icon>
+        </div>
+      </div>
+    </div>
+    <div class="text-block">
+      <tui-line-clamp [content]="course.description" [linesLimit]="4">
+      </tui-line-clamp>
+    </div>
+  </div>
+  <div class="btn-group">
+    <button tuiButton appearance="secondary" class="edit-btn">
+      <tui-icon icon="tuiIconEdit"></tui-icon>
+      Edit
+    </button>
+    <button (click)="onDeleteCourse(course.id)" size="l" tuiButton appearance="secondary-destructive"
+      class="delete-button">
+      <tui-icon icon="tuiIconTrash"></tui-icon>
+      Delete
+    </button>
+  </div>
+</tui-island>
+<div class="btn_container">
+  <button tuiButton class="loadMore" appearance="secondary" (click)="onAddMore()">
+    Load More
+  </button>
+</div>
