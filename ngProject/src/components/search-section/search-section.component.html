@@ -1,19 +1,10 @@
 <div class="wrapper">
   <div class="left-block">
-    <tui-input
-      tuiHintDirection="bottom-right"
-      tuiTextfieldIconLeft="tuiIconSearchLarge"
-      class="input"
-      [(ngModel)]="inputValue"
-    >
+    <tui-input (keydown.enter)="onSearch($event)" tuiHintDirection="bottom-right"
+      tuiTextfieldIconLeft="tuiIconSearchLarge" class="input" [(ngModel)]="inputValue">
       Name, fragment or date
     </tui-input>
-    <button
-      class="search-btn"
-      appearance="secondary"
-      tuiButton
-      (click)="onSearch()"
-    >
+    <button class="search-btn" appearance="secondary" tuiButton (click)="onSearch()">
       Search
     </button>
   </div>

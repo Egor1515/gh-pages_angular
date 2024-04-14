@@ -19,7 +19,7 @@ export class CourseListComponent implements OnInit {
     this.courses.sort((a, b) => {
       const dateA = new Date(a.creationDate).getTime()
       const dateB = new Date(b.creationDate).getTime()
-      return dateA - dateB
+      return dateB - dateA
     })
   }
 

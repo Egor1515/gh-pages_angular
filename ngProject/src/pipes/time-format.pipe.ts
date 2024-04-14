@@ -10,6 +10,7 @@ export class TimeFormatPipe implements PipeTransform {
             const hours = minutes / 60
             return `${hours}h`
         }
+        
         if (minutes < 60) {
             return `${minutes}min`
         }
