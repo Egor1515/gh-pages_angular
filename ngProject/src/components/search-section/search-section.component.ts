@@ -37,6 +37,6 @@ export class SearchSectionComponent {
   onInputChange(event: Event){
   const inputElement = event.target as HTMLInputElement
   this.inputValue = inputElement.value
-  this.onSearch()
+  // this.onSearch()
   }
 }
