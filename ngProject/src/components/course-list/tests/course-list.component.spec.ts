@@ -1,7 +1,9 @@
-import { ComponentFixture, TestBed, fakeAsync, flush, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { CourseListComponent } from '../course-list.component';
 import { CourseListModule } from '../course-list.module';
 import { Course } from '../../../interfaces/course.interface';
+import { TimeFormatPipe } from '../../../pipes/timeFormat.pipe';
+import { TitleCasePipe } from '@angular/common';
 
 describe('CourseListComponent', () => {
     let component: CourseListComponent;
@@ -9,7 +11,7 @@ describe('CourseListComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports:[CourseListModule],
+            imports: [CourseListModule],
             declarations: [CourseListComponent],
         });
 
@@ -28,9 +30,9 @@ describe('CourseListComponent', () => {
         const componentItem = native.querySelector('.island')
 
         expect(componentItem).toBeFalsy()
-    })  
+    })
 
-      it('При пустом массиве все равно рендерим кнопку LoadMore', () => {
+    it('При пустом массиве все равно рендерим кнопку LoadMore', () => {
         const mock: Course[] = []
         component.courses = mock
         fixture.detectChanges()
@@ -50,7 +52,7 @@ describe('CourseListComponent', () => {
             description: `text`,
             topRated: false
         }
-        
+
         component.courses = [mock]
         fixture.detectChanges()
         const native = fixture.nativeElement
@@ -86,7 +88,7 @@ describe('CourseListComponent', () => {
     it('Проверяем рендеринг всех деталей компонента с курсом', fakeAsync(() => {
         const course: Course = {
             id: '3',
-            name: 'Angular Masterclass#3',
+            name: 'angular masterclass#3',
             creationDate: new Date('04.20.2021'),
             duration: 80,
             description: `text`,
@@ -95,22 +97,21 @@ describe('CourseListComponent', () => {
 
         component.courses = [course]
         fixture.detectChanges()
-
         tick()
 
         const native = fixture.nativeElement
         const element = native.querySelector('.island')
-        console.log(element.textContent)
-        console.log(native.textContent)
-        expect(native.textContent).toContain(course.creationDate);
-        expect(native.textContent).toContain(course.duration);
-        expect(element.textContent).toContain(course.name)
+        const starIcon = native.querySelector('.iconStar')
+        const editButton = native.querySelector('.edit-btn');
+        const deleteButton = native.querySelector('.delete-btn');
+        const timePipe = new TimeFormatPipe()
+        const nameTransformPipe = new TitleCasePipe()
+
+        expect(native.textContent).toContain('Apr 20, 2021');
+        expect(native.textContent).toContain(timePipe.transform(course.duration));
+        expect(element.textContent).toContain(nameTransformPipe.transform(course.name))
         expect(native.textContent).toContain(course.description);
-        const starIcon = native.querySelector('.starIcon')
         expect(starIcon).toBeTruthy();
-        fixture.whenRenderingDone()
-        const editButton = native.querySelector('.edit-button');
-        const deleteButton = native.querySelector('.delete-button');
         expect(editButton).toBeTruthy();
         expect(deleteButton).toBeTruthy();
     }))
