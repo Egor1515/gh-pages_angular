@@ -4,7 +4,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
   selector: '[courseBorder]'
 })
 export class BorderHighLighterDirective {
-  @Input() creationDate!: Date
+  @Input() creationDate!: Date | undefined
 
   constructor(private el: ElementRef) { 
   }

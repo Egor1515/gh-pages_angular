@@ -41,4 +41,10 @@ describe('CourseListComponent', () => {
 
         expect(courseListComponent).toBeTruthy()
     })
+
+
+  it('Проверяем, что вернется id курса при вызoве onDeleteCourse', () => {
+    const courseId = '123'
+    expect(appComponent.ondeleteCourse(courseId)).toBe(courseId)
+  })
 });
