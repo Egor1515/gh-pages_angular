@@ -182,4 +182,34 @@ describe('CourseListComponent', () => {
 
         expect(component.courses.length).toEqual(1)
     })
+
+    it('Утилита filterCourses устанавливает в массив переданные отфильтрованные курсы', () => {
+        const filteredCourses: Course[] = [{
+            id: '3',
+            name: 'Angular Masterclass#3',
+            creationDate: new Date('04.20.2021'),
+            duration: 90,
+            description: `text`,
+            topRated: false
+        },
+        {
+            id: '2',
+            name: 'Angular Masterclass#2',
+            creationDate: new Date('04.20.2021'),
+            duration: 90,
+            description: `text`,
+            topRated: false
+        },
+        {
+            id: '1',
+            name: 'Angular Masterclass#1',
+            creationDate: new Date('04.20.2021'),
+            duration: 90,
+            description: `text`,
+            topRated: false
+        }]
+        fixture.detectChanges()
+        component.filterCourses(filteredCourses)
+        expect(component.courses).toEqual(filteredCourses)
+    })
 })

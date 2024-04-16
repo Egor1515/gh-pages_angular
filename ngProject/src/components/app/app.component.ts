@@ -9,10 +9,6 @@ import { mocks } from '../course-list/courses-mock';
 export class AppComponent {
   title = 'ngProject';
   courses = mocks
-
-  onAddMore() {
-    return 'Btn Clicked';
-  }
   
   ondeleteCourse(courseId: string) {
     return courseId;
