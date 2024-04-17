@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Course } from '../../interfaces/course.interface';
+import { CoursesService } from '../../services/courses.service';
 
 @Component({
   selector: 'app-course-list',
@@ -8,11 +9,19 @@ import { Course } from '../../interfaces/course.interface';
 })
 export class CourseListComponent implements OnInit {
 
-  @Input() courses: Course[] = []
+  courses!: Course[]
   @Output() deleteCourse = new EventEmitter<string>()
 
+  constructor(private service: CoursesService) { }
+
   ngOnInit(): void {
+    this.loadAllCourses()
     this.sortCourses()
+  }
+
+  //Отедльный метод, просто для получения и чистоты кода
+  loadAllCourses() {
+    this.courses = this.service.getAllCourses()
   }
 
   sortCourses(): void {
@@ -24,14 +33,14 @@ export class CourseListComponent implements OnInit {
   }
 
   onDeleteCourse(courseId: string) {
-    this.deleteCourse.emit(courseId)
+   this.deleteCourse.emit(courseId)
   }
 
   onAddMore() {
     return 'Btn Clicked';
   }
 
-  filterCourses(filteredCourses:Course[]){
+  filterCourses(filteredCourses: Course[]) {
     return this.courses = [...filteredCourses]
   }
 }

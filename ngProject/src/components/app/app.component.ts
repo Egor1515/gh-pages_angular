@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { mocks } from '../course-list/courses-mock';
+import { CoursesService } from '../../services/courses.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,9 @@ export class AppComponent {
   title = 'ngProject';
   courses = mocks
   
-  ondeleteCourse(courseId: string) {
-    return courseId;
+  constructor(private service: CoursesService){}
+
+  onDeleteCourse(courseId: string) {
+    this.service.deleteCourseById(courseId)
   }
 }
