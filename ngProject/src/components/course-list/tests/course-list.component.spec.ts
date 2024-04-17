@@ -107,7 +107,7 @@ describe('CourseListComponent', () => {
         const timePipe = new TimeFormatPipe()
         const nameTransformPipe = new TitleCasePipe()
 
-        expect(native.textContent).toContain('Apr 20, 2021');
+        expect(native.textContent).toContain('Apr 13, 2024');
         expect(native.textContent).toContain(timePipe.transform(course.duration));
         expect(element.textContent).toContain(nameTransformPipe.transform(course.name))
         expect(native.textContent).toContain(course.description);

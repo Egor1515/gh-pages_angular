@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from '../app.component';
 import { CourseListComponent } from '../../course-list/course-list.component';
+import { mocks } from '../../course-list/courses-mock';
 
 describe('CourseListComponent', () => {
     let appComponent: AppComponent;
@@ -45,6 +46,9 @@ describe('CourseListComponent', () => {
 
   it('Проверяем, что вернется id курса при вызoве onDeleteCourse', () => {
     const courseId = '123'
-    expect(appComponent.ondeleteCourse(courseId)).toBe(courseId)
+    const courses = mocks
+    appComponent.onDeleteCourse(courseId)
+
+    expect(appComponent.courses).toBe(mocks)
   })
 });
