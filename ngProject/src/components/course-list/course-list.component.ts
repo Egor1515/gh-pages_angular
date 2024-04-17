@@ -1,22 +1,27 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Course } from '../../interfaces/course.interface';
 import { CoursesService } from '../../services/courses.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-course-list',
   templateUrl: './course-list.component.html',
   styleUrl: './course-list.component.less',
 })
-export class CourseListComponent implements OnInit {
+export class CourseListComponent implements OnInit, OnDestroy {
 
   courses!: Course[]
   @Output() deleteCourse = new EventEmitter<string>()
-
+  private coursesSubscription!: Subscription;
+  
   constructor(private service: CoursesService) { }
 
   ngOnInit(): void {
     this.loadAllCourses()
     this.sortCourses()
+    this.coursesSubscription = this.service.coursesSubject.subscribe((coursesSent)=> {
+      this.courses = coursesSent
+    })
   }
 
   //Отедльный метод, просто для получения и чистоты кода
@@ -42,5 +47,9 @@ export class CourseListComponent implements OnInit {
 
   filterCourses(filteredCourses: Course[]) {
     return this.courses = [...filteredCourses]
+  }
+
+  ngOnDestroy(): void {
+    this.coursesSubscription.unsubscribe()
   }
 }

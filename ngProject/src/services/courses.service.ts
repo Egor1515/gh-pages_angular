@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../interfaces/course.interface';
 import { mocks } from '../components/course-list/courses-mock';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
   private courses: Record<string, Course> = {}
-
+  public coursesSubject = new BehaviorSubject<Course[]>([])
 
   constructor() {
     this.initCourses()
@@ -21,13 +21,12 @@ export class CoursesService {
       return acc
     }, {} as Record<string, Course>)
 
-    // this.updateCoursesSubject()
+    this.updateCoursesSubject()
   }
 
-  // private updateCoursesSubject() {
-  //   this.coursesSubject.next(Object.values(this.courses))
-  //   // this.updateCoursesSubject()
-  // }
+  private updateCoursesSubject() {
+    this.coursesSubject.next(Object.values(this.courses))
+  }
 
   getAllCourses():Course[] {
 
@@ -49,15 +48,15 @@ export class CoursesService {
       ...this.courses[id],
       ...newData
     }
+    this.updateCoursesSubject()
   }
 
   deleteCourseById(id: string) {
-    console.log(this.courses)
     if (!this.courses[id]) throw new Error(`Курса с id ${id} нет`)
 
     if (this.courses[id]) {
       delete this.courses[id]
     }
-    // this.updateCoursesSubject()
+    this.updateCoursesSubject()
   }
 }

@@ -14,6 +14,9 @@ export class AppComponent {
   constructor(private service: CoursesService){}
 
   onDeleteCourse(courseId: string) {
-    this.service.deleteCourseById(courseId)
+    const userConfirm = confirm('Do you really want to delete this course? Yes/No')
+    if(userConfirm){
+      this.service.deleteCourseById(courseId)
+    }
   }
 }
