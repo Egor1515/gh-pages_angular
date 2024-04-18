@@ -1,1 +1,20 @@
-<p>lorem10</p>
+<div class="main-block">
+    <div class="auth-block">
+        <div class="heading">
+            <img src="../../assets/Coursenta.svg" alt="Coursente" class="logo">
+            <h2 class="subTitle">Please enter your login information below</h2>
+        </div>
+
+        <form class="form" action="" method="post">
+            <tui-input  formControlName="testValue" tuiTextfieldSize="m">
+                Email
+                <input autocomplete="email" tuiTextfield type="email" />
+            </tui-input> 
+            <tui-input-password formControlName="testValue" tuiTextfieldSize="m" class="tui-space_top-2">
+                Password
+                <input placeholder="Make it secure!" tuiTextfield />
+            </tui-input-password> 
+            <button class="loginBtn" tuiButton appearance="primary">Login</button>
+        </form>
+    </div>
+</div>

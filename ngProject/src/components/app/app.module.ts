@@ -14,6 +14,7 @@ import { FooterModule } from '../footer/footer.module';
 import { HeaderModule } from '../header/header.module';
 import { SearchSectionModule } from '../search-section/search-section.module';
 import { FormsModule } from '@angular/forms';
+import { LoginPageModule } from '../login-page/login-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     TuiRootModule,
     FormsModule,
     TuiButtonModule,
+    LoginPageModule
   ],
   providers: [provideClientHydration(), { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },],
   bootstrap: [AppComponent],

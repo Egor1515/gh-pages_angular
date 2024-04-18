@@ -1,7 +1,8 @@
 <tui-root>
-  <app-header></app-header>
   <div class="wrapper">
-    <app-course-list (deleteCourse)="onDeleteCourse($event)"></app-course-list>
+    <app-header></app-header>
+    <!-- <app-course-list (deleteCourse)="onDeleteCourse($event)"></app-course-list> -->
+    <router-outlet></router-outlet>
     <app-footer></app-footer>
   </div>
 </tui-root>

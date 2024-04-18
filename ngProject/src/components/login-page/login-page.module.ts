@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './login-page.component';
 import { HeaderModule } from '../header/header.module';
+import { TuiButtonModule } from '@taiga-ui/core';
+import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
 
 
 
@@ -10,7 +12,8 @@ import { HeaderModule } from '../header/header.module';
     LoginPageComponent
   ],
   imports: [
-    CommonModule,HeaderModule
-  ], exports: [LoginPageComponent]
+    HeaderModule,CommonModule, TuiButtonModule, TuiInputPasswordModule, TuiInputModule
+  ], 
+  exports: [LoginPageComponent]
 })
 export class LoginPageModule { }

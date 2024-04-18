@@ -1,3 +1,4 @@
+<div class="wrapper">
 <app-search-section class="search-section" [coursesList]="courses" (courseFilter)="filterCourses($event)"></app-search-section>
 <tui-island class="island" [hoverable]="true" *ngFor="let course of courses" [creationDate]="course.creationDate" courseBorder [ngClass]="{'top-rated':course.topRated}">
   <div class="main-block">
@@ -46,4 +47,5 @@
   <button tuiButton class="loadMore" appearance="secondary" (click)="onAddMore()">
     Load More
   </button>
+</div>
 </div>
