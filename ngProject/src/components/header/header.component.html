@@ -1,13 +1,14 @@
 <header>
   <div class="header_block">
     <div class="left-block">
-      <img src="../../assets/logo.png" alt="Coursenta logo" routerLink=""/>
+      <img class="logo" src="../../assets/logo.png" alt="Coursenta logo" routerLink=""/>
     </div>
     <div class="right-block">
       <button class="nick-name" tuiButton size="l" appearance="none" [style.color]="'#1B1F3BCC'" routerLink="/login">
         <tui-icon class="starIcon"  [style.color]="'var(--tui-primary)'" icon="tuiIconStar"> </tui-icon>
-        <ng-container *ngIf="getUserDisplayName; else loggedInElse">{{getUserDisplayName}}</ng-container>
-        <ng-template #loggedInElse>Log In</ng-template>
+        <ng-container *ngIf="getUserDisplayName; else loggedInElse" class="userName">{{ getUserDisplayName }}</ng-container>
+        <ng-template #loggedInElse><span class="userName">Log In</span></ng-template>
+        
       </button>
       <a href="#" tuiLink routerLink="#" [style.color]="'var(--tui-primary)'" (click)="logout()">
         <tui-icon icon="tuiIconCheckSquareLarge"> </tui-icon>

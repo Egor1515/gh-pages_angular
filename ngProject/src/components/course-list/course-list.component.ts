@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter, OnDestroy } from '@angu
 import { Course } from '../../interfaces/course.interface';
 import { CoursesService } from '../../services/courses.service';
 import { Subscription } from 'rxjs';
+import { AuthGuardService } from '../../services/auth-guard.service';
 
 @Component({
   selector: 'app-course-list',
@@ -14,9 +15,10 @@ export class CourseListComponent implements OnInit, OnDestroy {
   @Output() deleteCourse = new EventEmitter<string>()
   private coursesSubscription!: Subscription;
   
-  constructor(private service: CoursesService) { }
+  constructor(private service: CoursesService, private authGuardService: AuthGuardService) { }
 
   ngOnInit(): void {
+
     this.loadAllCourses()
     this.sortCourses()
     this.coursesSubscription = this.service.coursesSubject.subscribe((coursesSent)=> {

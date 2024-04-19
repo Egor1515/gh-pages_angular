@@ -5,7 +5,6 @@ import { TuiInputModule } from '@taiga-ui/kit';
 import {
   TuiButtonModule,
   TuiHintModule,
-  TuiTextfieldControllerModule,
 } from '@taiga-ui/core';
 import { TuiIconModule } from '@taiga-ui/experimental';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +18,6 @@ import { FilterCoursesPipe } from '../../pipes/filterCourses.pipe';
     TuiButtonModule,
     TuiIconModule,
     TuiHintModule,
-    TuiTextfieldControllerModule,
     FormsModule,
   ],
   providers:[FilterCoursesPipe],

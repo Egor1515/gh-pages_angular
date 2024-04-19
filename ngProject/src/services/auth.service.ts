@@ -25,7 +25,9 @@ export class AuthService {
   }
 
   isAuthorized(): boolean {
+    console.log(this.currentUser)
     if (this.currentUser) {
+      console.log(this.currentUser)
       return !!localStorage.getItem(this.currentUser)
     }
     return false

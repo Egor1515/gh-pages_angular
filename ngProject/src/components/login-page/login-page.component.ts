@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -7,4 +9,23 @@ import { Component } from '@angular/core';
 })
 export class LoginPageComponent {
 
+  constructor(private auth: AuthService, private router: Router) { }
+
+  email!: string
+  password!: string
+  showLoader!: boolean
+
+  onLogin() {
+    this.auth.login(this.email)
+
+    if (this.auth.isAuthorized()) {
+      this.showLoader = true
+      //Добавил для себя, для визуального эффекта - сейчас хочу сделать лоадер для имитации
+      //Cейчас есть самый простой лоадер в login-page
+      setTimeout(() => {
+        this.router.navigate(['/courses'])
+      }, 3000);
+    }
+    console.log('Logged in successfully')
+  }
 }

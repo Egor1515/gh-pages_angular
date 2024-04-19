@@ -5,16 +5,18 @@
             <h2 class="subTitle">Please enter your login information below</h2>
         </div>
 
-        <form class="form" action="" method="post">
-            <tui-input  formControlName="testValue" tuiTextfieldSize="m">
+        <div class="form" action="" method="post">
+            <tui-input formControlName="testValue" tuiTextfieldSize="m">
                 Email
-                <input autocomplete="email" tuiTextfield type="email" />
-            </tui-input> 
-            <tui-input-password formControlName="testValue" tuiTextfieldSize="m" class="tui-space_top-2">
+                <input [(ngModel)]="email" autocomplete="email" tuiTextfield type="email" />
+            </tui-input>
+            <tui-input-password formControlName="testValue" class="tui-space_top-2">
                 Password
-                <input placeholder="Make it secure!" tuiTextfield />
-            </tui-input-password> 
-            <button class="loginBtn" tuiButton appearance="primary">Login</button>
-        </form>
+                <input [(ngModel)]="password" placeholder="Make it secure!" tuiTextfield />
+            </tui-input-password>
+            <tui-loader  class="loader" [overlay]="true" [showLoader]="showLoader">
+                <button (click)="onLogin()" type="submit" class="loginBtn" tuiButton appearance="primary">Login</button>
+            </tui-loader>
+        </div>
     </div>
 </div>
