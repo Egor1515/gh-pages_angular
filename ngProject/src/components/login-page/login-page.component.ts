@@ -15,7 +15,10 @@ export class LoginPageComponent {
   password!: string
   showLoader!: boolean
 
-  onLogin() {
+  onLogin(event?: Event) {
+    if(event){
+      event.preventDefault()
+    }
     this.auth.login(this.email)
 
     if (this.auth.isAuthorized()) {
@@ -24,8 +27,8 @@ export class LoginPageComponent {
       //Cейчас есть самый простой лоадер в login-page
       setTimeout(() => {
         this.router.navigate(['/courses'])
+        console.log('Logged in successfully')
       }, 3000);
     }
-    console.log('Logged in successfully')
   }
 }

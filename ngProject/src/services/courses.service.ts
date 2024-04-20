@@ -1,36 +1,52 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Course } from '../interfaces/course.interface';
-import { mocks } from '../components/course-list/courses-mock';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, } from 'rxjs';
+import { TuiDialogComponent, TuiDialogService } from '@taiga-ui/core';
+import { generateCourseRecord, mocks } from '../components/course-list/courses-mock';
+import { FilterCoursesPipe } from '../pipes/filterCourses.pipe';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoursesService {
-  private courses: Record<string, Course> = {}
-  public coursesSubject = new BehaviorSubject<Course[]>([])
+  // Теперь мы изначально получаем коллекцию с "бека", а дальше уже в стрим кладем нужный массив
+  private courses: Record<string, Course> = generateCourseRecord()
+  public courses$ = new BehaviorSubject<Course[]>([])
+  private readonly dialog = this.dialogs.open('',
+  {
+    label: 'Do you really want to delete this course?',
+    size: 's',
+    data: { button: 'Yes' },
+  },
+)
 
-  constructor() {
+  constructor(
+    @Inject(TuiDialogService) private readonly dialogs: TuiDialogService,
+    private readonly filterPipe: FilterCoursesPipe) {
     this.initCourses()
   }
 
+  // private readonly courses$: Observable<Course[]> = this.courses$.pipe(
+  //   map((courses: Course[]) => {
+  //     return courses.filter(course => {
+  //       return course.name === '123'
+  //     })
+  //   })
+  // )
 
+  // Здесь просто получаем курсы(пока просто мок) и формируем словарь
   private initCourses() {
-    this.courses = mocks.reduce((acc, course) => {
-      acc[course.id] = course
-      return acc
-    }, {} as Record<string, Course>)
-
-    this.updateCoursesSubject()
+    this.sortCourses()
   }
 
-  private updateCoursesSubject() {
-    this.coursesSubject.next(Object.values(this.courses))
+  //Здесь мы вытягиваем массив курсов и отправляем их в стрим, на который есть подписки
+  private updateCoursesSubject(courseArray: Course[]) {
+    this.courses$.next(courseArray)
   }
 
-  getAllCourses():Course[] {
-
-    return Object.values(this.courses)
+  getAllCourses(): Course[] {
+    const courseArray = Object.values(this.courses)
+    return [...courseArray]
   }
 
   getCourseById(id: string): Course | undefined {
@@ -38,25 +54,42 @@ export class CoursesService {
   }
 
   addToCourses(newCourse: Course) {
-    this.courses[newCourse.id] = newCourse
+    const updatedCourses = {
+      ...this.courses,
+      [newCourse.id]: newCourse
+    }
+    this.updateCoursesSubject(Object.values(updatedCourses))
   }
 
   updateCourseData(id: string, newData: Partial<Course>) {
     if (!this.courses[id]) throw new Error(`Курса с id ${id} нет`)
 
-    this.courses[id] = {
-      ...this.courses[id],
-      ...newData
-    }
-    this.updateCoursesSubject()
+    const updateCourseData = { ...this.courses[id], ...newData }
+    const updatedCourses = { ...this.courses, [id]: updateCourseData }
+    this.updateCoursesSubject(Object.values(updatedCourses))
   }
 
+  //Здесь пересмотреть реализацию
   deleteCourseById(id: string) {
     if (!this.courses[id]) throw new Error(`Курса с id ${id} нет`)
-
     if (this.courses[id]) {
       delete this.courses[id]
     }
-    this.updateCoursesSubject()
+    this.updateCoursesSubject(Object.values(this.courses))
+  }
+
+  sortCourses() {
+    const courseArray = Object.values(this.courses)
+    const sortedArray = [...courseArray].sort((a, b) => {
+      const dateA = new Date(a.creationDate).getTime()
+      const dateB = new Date(b.creationDate).getTime()
+      return dateB - dateA
+    })
+    this.updateCoursesSubject(sortedArray)
+  }
+  
+  filterCourses(inputValue: string) {
+    const courseArray = this.filterPipe.transform(mocks, inputValue)
+    this.updateCoursesSubject(courseArray)
   }
 }

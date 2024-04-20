@@ -1,18 +1,16 @@
 <header>
   <div class="header_block">
     <div class="left-block">
-      <img class="logo" src="../../assets/logo.png" alt="Coursenta logo" routerLink=""/>
+      <img class="logo" src="../../assets/logo.png" alt="Coursenta logo"/>
     </div>
     <div class="right-block">
-      <button class="nick-name" tuiButton size="l" appearance="none" [style.color]="'#1B1F3BCC'" routerLink="/login">
-        <tui-icon class="starIcon"  [style.color]="'var(--tui-primary)'" icon="tuiIconStar"> </tui-icon>
-        <ng-container *ngIf="getUserDisplayName; else loggedInElse" class="userName">{{ getUserDisplayName }}</ng-container>
-        <ng-template #loggedInElse><span class="userName">Log In</span></ng-template>
-        
+      <button class="nick-name" tuiButton size="l" appearance="none" [style.color]="'#1B1F3BCC'">
+        <tui-icon class="starIcon" [style.color]="'var(--tui-primary)'" icon="tuiIconStar"> </tui-icon>
+        <ng-container *ngIf="userDisplayName" class="userName">{{ userDisplayName }}</ng-container>
       </button>
-      <a href="#" tuiLink routerLink="#" [style.color]="'var(--tui-primary)'" (click)="logout()">
+      <a href="#" tuiLink [routerLink]="getRouterLink()" [style.color]="'var(--tui-primary)'" (click)="logout()">
         <tui-icon icon="tuiIconCheckSquareLarge"> </tui-icon>
-        Log out
+        {{userDisplayName? 'Log out': 'Log in' }}
       </a>
     </div>
   </div>

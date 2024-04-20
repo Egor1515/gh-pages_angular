@@ -8,37 +8,42 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.less',
 })
 export class HeaderComponent implements OnInit {
-  getUserDisplayName: string = ''
+  userDisplayName: string = ''
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.displayName()
   }
 
-  async displayName() {
-    if (this.authService.isAuthorized()) {
-      const userLogin = this.authService.getUserInfo()
-      if (userLogin) {
-        const storedName = localStorage.getItem(userLogin)
-        if (storedName) {
-          this.getUserDisplayName = userLogin
-        } else {
-          return false
-        }
-      } else {
-        return false
-      }
-    } else {
+  displayName() {
+    if (!this.authService.isAuthorized()) {
       return false
     }
-    return false
+
+    const userLogin = this.authService.getUserInfo();
+    if (!userLogin) {
+      return false
+    }
+
+    const storedName = localStorage.getItem(userLogin);
+    if (!storedName) {
+      return false
+    }
+    this.userDisplayName = userLogin
+
+    return this.userDisplayName
   }
 
   logout() {
     this.authService.logout()
-    this.getUserDisplayName = ''
+    this.userDisplayName = ''
     console.log('Logged out successfully')
   }
 
-
+  getRouterLink() {
+    if (this.userDisplayName) {
+      return ''
+    }
+    return '/login'
+  }
 }

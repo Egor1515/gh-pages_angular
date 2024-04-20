@@ -12,7 +12,7 @@ export class AppComponent {
   title = 'ngProject';
   courses = mocks
   
-  constructor(private service: CoursesService, private router: Router){}
+  constructor(private readonly service: CoursesService, private router: Router){}
 
   onDeleteCourse(courseId: string) {
     const userConfirm = confirm('Do you really want to delete this course?')

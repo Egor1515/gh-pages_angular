@@ -1,5 +1,5 @@
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
-import { TUI_SANITIZER, TuiButtonModule, TuiRootModule } from '@taiga-ui/core';
+import { TUI_SANITIZER, TuiButtonModule, TuiDialogModule, TuiRootModule } from '@taiga-ui/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import {
@@ -29,7 +29,9 @@ import { LoginPageModule } from '../login-page/login-page.module';
     TuiRootModule,
     FormsModule,
     TuiButtonModule,
-    LoginPageModule
+    LoginPageModule,
+    TuiDialogModule,
+    TuiRootModule,
   ],
   providers: [provideClientHydration(), { provide: TUI_SANITIZER, useClass: NgDompurifySanitizer },],
   bootstrap: [AppComponent],

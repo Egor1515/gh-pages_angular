@@ -46,7 +46,6 @@ describe('CourseListComponent', () => {
 
   it('Проверяем, что вернется id курса при вызoве onDeleteCourse', () => {
     const courseId = '123'
-    const courses = mocks
     appComponent.onDeleteCourse(courseId)
 
     expect(appComponent.courses).toBe(mocks)

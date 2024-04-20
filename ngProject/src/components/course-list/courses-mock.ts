@@ -1,3 +1,5 @@
+import { Course } from "../../interfaces/course.interface";
+
 export const mocks = [
     {
         id: '1',
@@ -45,7 +47,7 @@ export const mocks = [
         topRated: true
     },
     {
-        id: '3',  
+        id: '3',
         name: 'Angular masterclass',
         creationDate: new Date('04.14.2024'),
         duration: 70,
@@ -108,3 +110,11 @@ export const mocks = [
         topRated: true
     }
 ];
+
+
+export function generateCourseRecord(): Record<string, Course> {
+    return mocks.reduce((acc, course) => {
+        acc[course.id] = course
+        return acc
+    }, {} as Record<string, Course>)
+}
