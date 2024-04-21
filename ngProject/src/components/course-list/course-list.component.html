@@ -37,12 +37,13 @@
       </button>
     </div>
   </tui-island>
+  
   <div class="no-data-wrapper" *ngIf="courses.length === 0">
     <div class="data-icon">
       <tui-avatar [rounded]="true" class="data-avatar" [avatarUrl]="avatar" size="xl"></tui-avatar>
     </div>
-    <h2 tuiTitle class="data-title">No data</h2>
-    <div tuiSubtitle class="data-subtitle">Feel free to add new course</div>
+    <p tuiTitle class="data-title">No data</p>
+    <p tuiSubtitle class="data-subtitle">Feel free to add new course</p>
   </div>
   <div *ngIf="courses.length > 0" class="btn_container">
     <button tuiButton class="loadMore" appearance="secondary" (click)="onAddMore()">
