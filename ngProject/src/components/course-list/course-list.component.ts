@@ -1,8 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit, Output, EventEmitter, OnDestroy, Inject } from '@angular/core';
 import { Course } from '../../interfaces/course.interface';
 import { CoursesService } from '../../services/courses.service';
-import { EMPTY, Subscription, filter, of, switchMap } from 'rxjs';
-import { AuthGuardService } from '../../services/auth-guard.service';
+import { EMPTY, Subscription, of, switchMap } from 'rxjs';
 import { TuiAlertService, TuiDialogService } from '@taiga-ui/core';
 import { TuiPromptData, TUI_PROMPT } from '@taiga-ui/kit';
 import { AuthService } from '../../services/auth.service';
@@ -15,6 +14,7 @@ import { AuthService } from '../../services/auth.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseListComponent implements OnInit, OnDestroy {
+  readonly avatar = '../../assets/infoBlock.png'
   courses: Course[] = []
   private courseId: string = ''
   @Output() deleteCourse = new EventEmitter<string>()
@@ -23,7 +23,6 @@ export class CourseListComponent implements OnInit, OnDestroy {
   constructor(private readonly service: CoursesService, private readonly authService: AuthService, @Inject(TuiDialogService) private readonly dialogs: TuiDialogService, @Inject(TuiAlertService) private readonly alerts: TuiAlertService) { }
 
   ngOnInit(): void {
-    this.authService.isAuthorized()
     this.loadAllCourses()
     this.coursesSubscription = this.service.courses$.subscribe((coursesSent) => {
       this.courses = coursesSent

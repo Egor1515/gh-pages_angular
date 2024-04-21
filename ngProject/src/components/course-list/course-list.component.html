@@ -39,7 +39,7 @@
   </tui-island>
   <div class="no-data-wrapper" *ngIf="courses.length === 0">
     <div class="data-icon">
-      <tui-avatar [rounded]="true" class="data-avatar" avatarUrl="tuiIconInfo"></tui-avatar>
+      <tui-avatar [rounded]="true" class="data-avatar" [avatarUrl]="avatar" size="xl"></tui-avatar>
     </div>
     <h2 tuiTitle class="data-title">No data</h2>
     <div tuiSubtitle class="data-subtitle">Feel free to add new course</div>

@@ -24,8 +24,10 @@ import { TuiMoneyModule } from '@taiga-ui/addon-commerce';
     TuiIslandModule,
     TuiBadgeModule,
     TuiLineClampModule,
-    TuiIslandModule, SearchSectionModule,
-    TuiTitleModule, TuiAvatarModule,
+    TuiIslandModule,
+    SearchSectionModule,
+    TuiTitleModule,
+    TuiAvatarModule,
     TuiMoneyModule,
     TuiPromptModule,
     TuiAlertModule
