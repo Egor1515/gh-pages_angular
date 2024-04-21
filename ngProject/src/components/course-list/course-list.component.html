@@ -30,7 +30,7 @@
         <tui-icon icon="tuiIconEdit"></tui-icon>
         Edit
       </button>
-      <button (click)="onClick()" size="l" tuiButton appearance="secondary-destructive"
+      <button (click)="onDeleteClick(course.id)" size="l" tuiButton appearance="secondary-destructive"
         class="delete-btn">
         <tui-icon icon="tuiIconTrash"></tui-icon>
         Delete
@@ -54,10 +54,10 @@
 <!-- Здесь идет модальное окно кастомизированное к которому мы обращаемся через template-->
 <ng-template #template let-observer>
   <h2>Do you really want to delete this course</h2>
-  <button size="m" tuiButton type="button" class="tui-space_right-3" (click)="deleteById();observer.complete()">
+  <button size="m" tuiButton type="button" class="tui-space_right-3" (click)="onDeleteCourse();observer.complete()">
     Delete&nbsp;
   </button>
   <button size="m" tuiButton type="button" (click)="observer.complete()">
     Cancel
-  </button>
+  </button> 
 </ng-template>

@@ -3,7 +3,6 @@ import { CourseListComponent } from "../course-list.component";
 import { CourseListTestHostComponent } from "../course-list.test-host.component";
 import { CourseListModule } from "../course-list.module";
 import { mocks } from "../courses-mock";
-import { By } from "@angular/platform-browser";
 
 describe('Проверка работы компонента внутри тест хоста', () => {
     let fixture: ComponentFixture<CourseListTestHostComponent>;

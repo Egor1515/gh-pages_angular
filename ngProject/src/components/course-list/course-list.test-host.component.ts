@@ -6,7 +6,7 @@ import { Course } from "../../interfaces/course.interface";
     template: `<app-course-list *ngIf="courses" (deleteCourse)="onDeleteCourse($event)"></app-course-list>`
 })
 export class CourseListTestHostComponent {
-    courses: Course[] | undefined
+    readonly courses: Course[] | undefined
     onDeleteCourse(courseId: string) : string{
         return courseId
     }

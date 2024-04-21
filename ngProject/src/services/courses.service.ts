@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { Course } from '../interfaces/course.interface';
 import { BehaviorSubject, } from 'rxjs';
-import { TuiDialogComponent, TuiDialogService } from '@taiga-ui/core';
+import { TuiDialogService } from '@taiga-ui/core';
 import { generateCourseRecord, mocks } from '../components/course-list/courses-mock';
 import { FilterCoursesPipe } from '../pipes/filterCourses.pipe';
 
@@ -10,29 +10,21 @@ import { FilterCoursesPipe } from '../pipes/filterCourses.pipe';
 })
 export class CoursesService {
   // Теперь мы изначально получаем коллекцию с "бека", а дальше уже в стрим кладем нужный массив
-  private courses: Record<string, Course> = generateCourseRecord()
-  public courses$ = new BehaviorSubject<Course[]>([])
+  private readonly courses: Record<string, Course> = generateCourseRecord()
+  public readonly courses$ = new BehaviorSubject<Course[]>([])
   private readonly dialog = this.dialogs.open('',
-  {
-    label: 'Do you really want to delete this course?',
-    size: 's',
-    data: { button: 'Yes' },
-  },
-)
+    {
+      label: 'Do you really want to delete this course?',
+      size: 's',
+      data: { button: 'Yes' },
+    },
+  )
 
   constructor(
     @Inject(TuiDialogService) private readonly dialogs: TuiDialogService,
     private readonly filterPipe: FilterCoursesPipe) {
     this.initCourses()
   }
-
-  // private readonly courses$: Observable<Course[]> = this.courses$.pipe(
-  //   map((courses: Course[]) => {
-  //     return courses.filter(course => {
-  //       return course.name === '123'
-  //     })
-  //   })
-  // )
 
   // Здесь просто получаем курсы(пока просто мок) и формируем словарь
   private initCourses() {
@@ -87,7 +79,7 @@ export class CoursesService {
     })
     this.updateCoursesSubject(sortedArray)
   }
-  
+
   filterCourses(inputValue: string) {
     const courseArray = this.filterPipe.transform(mocks, inputValue)
     this.updateCoursesSubject(courseArray)

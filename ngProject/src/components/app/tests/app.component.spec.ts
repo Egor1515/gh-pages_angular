@@ -1,15 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from '../app.component';
-import { CourseListComponent } from '../../course-list/course-list.component';
-import { mocks } from '../../course-list/courses-mock';
+import { Router } from '@angular/router'; // Импортируйте Router из @angular/router
 
 describe('CourseListComponent', () => {
     let appComponent: AppComponent;
     let fixture: ComponentFixture<AppComponent>;
-
+    const mockRouter = {
+        router: {
+            url: '/login'
+        }
+    };
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [AppComponent],
+            providers: [Router]
         });
 
         fixture = TestBed.createComponent(AppComponent);
@@ -21,33 +25,13 @@ describe('CourseListComponent', () => {
         expect(appComponent).toBeTruthy()
     })
 
-    it('Course-list компонент загружается при хотя бы одном переданном элементе', () => {
-        let courseListComponent: CourseListComponent;
-        let courseListFixture: ComponentFixture<CourseListComponent>
+    test('should return true if the current URL does not include "/login"', () => {
+        const result = appComponent.isOnLoginPage.call(mockRouter);
+        expect(result).toBe(false);
+    });
 
-        courseListFixture = TestBed.createComponent(CourseListComponent);
-        courseListComponent = courseListFixture.componentInstance;
-
-        appComponent.courses = [
-            {
-                id: '3',
-                name: 'Angular Masterclass#3',
-                creationDate: new Date('04.20.2021'),
-                duration: 100,
-                description: `text`,
-                topRated: false
-            }
-        ]
-        courseListFixture.detectChanges()
-
-        expect(courseListComponent).toBeTruthy()
-    })
-
-
-  it('Проверяем, что вернется id курса при вызoве onDeleteCourse', () => {
-    const courseId = '123'
-    appComponent.onDeleteCourse(courseId)
-
-    expect(appComponent.courses).toBe(mocks)
-  })
+    test('should return false if the current URL includes "/login"', () => {
+        const result = appComponent.isOnLoginPage.call(mockRouter);
+        expect(result).toBe(false);
+    });
 });

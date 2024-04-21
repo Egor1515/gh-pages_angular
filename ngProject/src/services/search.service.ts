@@ -11,6 +11,7 @@ export class SearchService {
     constructor(private readonly courseService: CoursesService) {
         this.filteredCourses$ = this.courseService.courses$.pipe(
             map(courses => {
+                //TOFIX проверить баг с удалением(отображается весь список при повторном поиске)
                 return courses.slice()
             })
         )

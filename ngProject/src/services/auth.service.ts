@@ -4,12 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  private fakeToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+  private readonly fakeToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
   private currentUser: string | null = null
   constructor() { }
 
-  login(userLogin: string) {
-    if (userLogin.trim()) {
+  login(userLogin: string | null | undefined) {
+    if (userLogin && userLogin.trim()) {
       this.currentUser = userLogin
       localStorage.setItem(this.currentUser, this.fakeToken)
       return
@@ -34,6 +34,4 @@ export class AuthService {
   getUserInfo(): string | null {
     return this.currentUser
   }
-
-
 }

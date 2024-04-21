@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -9,16 +10,28 @@ import { Router } from '@angular/router';
 })
 export class LoginPageComponent {
 
-  constructor(private auth: AuthService, private router: Router) { }
+  constructor(private readonly auth: AuthService, private readonly router: Router) { }
 
-  email!: string
-  password!: string
+  testForm = new FormGroup({
+    email: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required)
+  })
+
+  email: string | null | undefined = ''
+  password: string | null | undefined = ''
   showLoader!: boolean
 
   onLogin(event?: Event) {
-    if(event){
+    if (event) {
       event.preventDefault()
     }
+    if (this.testForm.invalid) {
+      return
+    }
+
+    this.email = this.testForm.value.email;
+    this.password = this.testForm.value.password;
+
     this.auth.login(this.email)
 
     if (this.auth.isAuthorized()) {
@@ -30,5 +43,9 @@ export class LoginPageComponent {
         console.log('Logged in successfully')
       }, 3000);
     }
+  }
+
+  showErrorMesage() {
+
   }
 }

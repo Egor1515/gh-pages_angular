@@ -1,4 +1,3 @@
-import { Course } from "../../interfaces/course.interface";
 import { TimeFormatPipe } from "../timeFormat.pipe";
 
 describe('TimeFormatPipe', () => {

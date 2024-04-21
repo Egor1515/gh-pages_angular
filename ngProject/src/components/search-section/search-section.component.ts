@@ -1,7 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Course } from '../../interfaces/course.interface';
 import { SearchService } from '../../services/search.service';
-import { BehaviorSubject, Observable } from 'rxjs';
 
 
 @Component({
@@ -10,12 +9,9 @@ import { BehaviorSubject, Observable } from 'rxjs';
   styleUrls: ['./search-section.component.less'],
 })
 export class SearchSectionComponent {
-  inputValue: string = '';
+  readonly inputValue: string = '';
   @Input() coursesList: Course[] = [];
-  @Output() courseFilter = new EventEmitter<Course[]>();
-  constructor(private readonly searchService: SearchService) {
-
-  }
+  constructor(private readonly searchService: SearchService) {}
 
   onSearch(event?: Event) {
     if (event) {

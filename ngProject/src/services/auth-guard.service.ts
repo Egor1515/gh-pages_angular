@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AuthGuardService {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private readonly authService: AuthService, private readonly router: Router) { }
 
   canActivate(){
     if(this.authService.isAuthorized()){

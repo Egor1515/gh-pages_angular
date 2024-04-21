@@ -7,7 +7,7 @@ import { TitleCasePipe } from '@angular/common';
 
 describe('CourseListComponent', () => {
     let component: CourseListComponent;
-    let fixture: ComponentFixture<CourseListComponent>;;
+    let fixture: ComponentFixture<CourseListComponent>
 
     beforeEach(() => {
         TestBed.configureTestingModule({

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[courseBorder]'
@@ -6,7 +6,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 export class BorderHighLighterDirective {
   @Input() creationDate!: Date | undefined
 
-  constructor(private el: ElementRef) { 
+  constructor(private readonly el: ElementRef, private readonly renderer: Renderer2) { 
   }
 
   ngOnInit() {
@@ -21,9 +21,9 @@ export class BorderHighLighterDirective {
     twoWeeksAgo.setDate(currentDate.getDate() - 14)
 
     if (this.creationDate < currentDate && this.creationDate >= twoWeeksAgo) {
-      this.el.nativeElement.style.border = '2px solid #54DB7A99'
+      this.renderer.setStyle(this.el.nativeElement,'border','2px solid #54DB7A99')
     } else if (this.creationDate > currentDate) {
-      this.el.nativeElement.style.border = '2px solid #82AAFF99'
+      this.renderer.setStyle(this.el.nativeElement,'border','2px solid #82AAFF99')
     }
   }
 
