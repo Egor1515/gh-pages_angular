@@ -8,8 +8,10 @@
         <form [formGroup]="testForm">
             <tui-input class="tui-space_bottom-4" formControlName="email">Email</tui-input>
             <tui-input-password class="tui-space_bottom-4" formControlName="password">Password</tui-input-password>
-            <tui-loader class="loader" [overlay]="true" [showLoader]="showLoader">
-                <button (click)="onLogin()" type="submit" class="loginBtn" tuiButton appearance="primary">Login</button>
+            <tui-error [textContent]="'Your input is incorrect'" formControlName="testForm" [error]="[] | tuiFieldError | async"></tui-error> <tui-loader
+                class="loader" [overlay]="true" [showLoader]="showLoader">
+                <button [disabled]="!testForm.get('email')?.value || !testForm.get('password')?.value"
+                    (click)="onLogin()" type="submit" class="loginBtn" tuiButton appearance="primary">Login</button>
             </tui-loader>
         </form>
     </div>

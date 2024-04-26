@@ -17,6 +17,7 @@ export class LoginPageComponent {
     password: new FormControl('', Validators.required)
   })
 
+  disabled = !this.testForm.get('email')?.value || !this.testForm.get('password')?.value
   email: string | null | undefined = ''
   password: string | null | undefined = ''
   showLoader!: boolean

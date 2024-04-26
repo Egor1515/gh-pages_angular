@@ -1,22 +1,28 @@
 import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 import { CourseListComponent } from '../course-list.component';
 import { CourseListModule } from '../course-list.module';
-import { Course } from '../../../interfaces/course.interface';
-import { TimeFormatPipe } from '../../../pipes/timeFormat.pipe';
-import { TitleCasePipe } from '@angular/common';
 import { CoursesService } from '../../../services/courses.service';
 
 describe('CourseListComponent', () => {
     let component: CourseListComponent;
     let fixture: ComponentFixture<CourseListComponent>
+    let service: CoursesService
+
+    let courseServiceMock!: {getAllcourses:jest.Mock}
 
     beforeEach(() => {
+        courseServiceMock = {
+            getAllcourses: jest.fn()
+        }
         TestBed.configureTestingModule({
             imports: [CourseListModule],
             declarations: [CourseListComponent],
-            providers:[CoursesService]
+            providers:[{
+                provide: CoursesService,
+                useValue: courseServiceMock
+            }]
         });
-
+        service = TestBed.inject(CoursesService)
         fixture = TestBed.createComponent(CourseListComponent);
         component = fixture.componentInstance;
     });

@@ -1,19 +1,18 @@
-<div class="wrapper">
-  <div class="left-block">
-    <tui-input (keydown.enter)="onSearch($event)" tuiHintDirection="bottom-right"
-      tuiTextfieldIconLeft="tuiIconSearchLarge" class="input" [(ngModel)]="inputValue">
-      Name, fragment or date
-    </tui-input>
-    <button class="search-btn" appearance="secondary" tuiButton (click)="onSearch()">
-      Search
-    </button>
+  <div class="w-11/12 flex justify-between my-0 mx-auto">
+    <div class="flex">
+      <tui-input (keydown.enter)="onSearch($event)" tuiHintDirection="bottom-right" class="min-w-[574px]"
+      [(ngModel)]="inputValue">
+      <tui-icon icon="tuiIconSearch"></tui-icon>
+        Name, fragment or date
+      </tui-input>
+      <button class="ml-4" appearance="secondary" tuiButton (click)="onSearch()">
+        Search
+      </button>
+    </div>
+    <div>
+      <button tuiButton>
+        <tui-icon icon="tuiIconPlus"></tui-icon>
+        Add Course
+      </button>
+    </div>
   </div>
-
-  <div class="right-block">
-    <button tuiButton>
-      <tui-icon icon="tuiIconPlus"></tui-icon>
-      Add Course
-    </button>
-  </div>
-</div>
-<hr>

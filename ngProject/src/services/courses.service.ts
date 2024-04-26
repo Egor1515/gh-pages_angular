@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { Course } from '../interfaces/course.interface';
 import { BehaviorSubject, } from 'rxjs';
 import { TuiDialogService } from '@taiga-ui/core';
-import { generateCourseRecord, mocks } from '../components/course-list/courses-mock';
+import { mocks } from '../components/course-list/courses-mock';
 import { FilterCoursesPipe } from '../pipes/filterCourses.pipe';
 
 @Injectable({
@@ -10,7 +10,7 @@ import { FilterCoursesPipe } from '../pipes/filterCourses.pipe';
 })
 export class CoursesService {
   // Теперь мы изначально получаем коллекцию с "бека", а дальше уже в стрим кладем нужный массив
-  private readonly courses: Record<string, Course> = generateCourseRecord()
+  private courses!: Record<string, Course>
   public readonly courses$ = new BehaviorSubject<Course[]>([])
   private readonly dialog = this.dialogs.open('',
     {
@@ -28,6 +28,7 @@ export class CoursesService {
 
   // Здесь просто получаем курсы(пока просто мок) и формируем словарь
   private initCourses() {
+    this.courses = this.generateCourseRecord()
     this.sortCourses()
   }
 
@@ -36,9 +37,14 @@ export class CoursesService {
     this.courses$.next(courseArray)
   }
 
+  generateCourseRecord(): Record<string, Course> {
+    return mocks.reduce((acc, course) => {
+      acc[course.id] = course
+      return acc
+    }, {} as Record<string, Course>)
+  }
   getAllCourses(): Course[] {
-    const courseArray = Object.values(this.courses)
-    return [...courseArray]
+    return [...Object.values(this.courses)]
   }
 
   getCourseById(id: string): Course | undefined {
@@ -56,8 +62,9 @@ export class CoursesService {
   updateCourseData(id: string, newData: Partial<Course>) {
     if (!this.courses[id]) throw new Error(`Курса с id ${id} нет`)
 
-    const updateCourseData = { ...this.courses[id], ...newData }
-    const updatedCourses = { ...this.courses, [id]: updateCourseData }
+      const updatedCourseData = {...this.courses[id], ...newData}
+      const updatedCourses = {...this.courses,[id]:updatedCourseData}
+    
     this.updateCoursesSubject(Object.values(updatedCourses))
   }
 

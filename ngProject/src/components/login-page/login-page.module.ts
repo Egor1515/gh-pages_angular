@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './login-page.component';
 import { HeaderModule } from '../header/header.module';
-import { TuiButtonModule, TuiHintModule, TuiLoaderModule } from '@taiga-ui/core';
-import { TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
+import { TuiButtonModule, TuiErrorModule, TuiHintModule, TuiLoaderModule } from '@taiga-ui/core';
+import { TuiFieldErrorPipeModule, TuiInputModule, TuiInputPasswordModule } from '@taiga-ui/kit';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginPageComponent
   ],
   imports: [
-    HeaderModule, FormsModule, CommonModule, TuiButtonModule, TuiInputPasswordModule, TuiInputModule, ReactiveFormsModule, TuiLoaderModule, TuiHintModule
+    HeaderModule, FormsModule, CommonModule, TuiButtonModule, TuiInputPasswordModule, TuiInputModule, ReactiveFormsModule, TuiLoaderModule, TuiHintModule,TuiErrorModule, TuiFieldErrorPipeModule
   ],
   exports: [LoginPageComponent]
 })

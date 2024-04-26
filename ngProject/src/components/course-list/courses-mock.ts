@@ -110,11 +110,3 @@ export const mocks = [
         topRated: true
     }
 ];
-
-
-export function generateCourseRecord(): Record<string, Course> {
-    return mocks.reduce((acc, course) => {
-        acc[course.id] = course
-        return acc
-    }, {} as Record<string, Course>)
-}

@@ -1,22 +1,20 @@
-<div class="wrapper">
-  <app-search-section class="search-section" [coursesList]="courses"></app-search-section>
-  <tui-island class="island" [hoverable]="true" *ngFor="let course of courses" [creationDate]="course.creationDate"
+  <tui-island [hoverable]="true" class="mt-5 drop-shadow-xl  rounded-lg bg-white island !flex justify-between w-11/12 mx-auto my-0 py-[24px] px-[20px]"  *ngFor="let course of courses" [creationDate]="course.creationDate"
     courseBorder [ngClass]="{'top-rated':course.topRated}">
-    <div class="main-block">
-      <div class="upper-block">
+    <div class="flex flex-col upper">
+      <div class="flex flex-col">
         <div class="date-block">{{course.creationDate | date}}</div>
-        <div class="course-info">
-          <div class="course-name">
+        <div class="flex items-center ">
+          <div class="font-semibold text-lg mr-3">
             <tui-line-clamp [content]="course.name | titlecase" [linesLimit]="1"></tui-line-clamp>
           </div>
-          <div class="course-duration">
-            <tui-badge [style.padding]="'20px'" [style.backgroundColor]="'#79818C1F'" [style.color]="'#000000'">
+          <div>
+            <tui-badge class="p-3 !bg-gray-200 !text-black">
               {{course.duration | timeFormatPipe}}
             </tui-badge>
           </div>
-          <div class="course-icon">
+          <div class="text-blue-600">
             <tui-icon class="iconStar" *ngIf="course.topRated" icon="tuiIconStar" [style.margin-left]="'10px'"
-              [style.fill]="'yellow'"></tui-icon>
+              ></tui-icon>
           </div>
         </div>
       </div>
@@ -31,13 +29,13 @@
         Edit
       </button>
       <button (click)="onDeleteClick(course.id)" size="l" tuiButton appearance="secondary-destructive"
-        class="delete-btn">
+        class=" delete-btn">
         <tui-icon icon="tuiIconTrash"></tui-icon>
         Delete
       </button>
     </div>
   </tui-island>
-  
+
   <div class="no-data-wrapper" *ngIf="courses.length === 0">
     <div class="data-icon">
       <tui-avatar [rounded]="true" class="data-avatar" [avatarUrl]="avatar" size="xl"></tui-avatar>
@@ -45,15 +43,16 @@
     <p tuiTitle class="data-title">No data</p>
     <p tuiSubtitle class="data-subtitle">Feel free to add new course</p>
   </div>
-  <div *ngIf="courses.length > 0" class="btn_container">
-    <button tuiButton class="loadMore" appearance="secondary" (click)="onAddMore()">
+  <div *ngIf="courses.length > 0" class="btn_container mt-7">
+    <button tuiButton class="loadMore w-11/12" appearance="secondary" (click)="onAddMore()">
       Load More
     </button>
   </div>
-</div>
+
+
 
 <!-- Здесь идет модальное окно кастомизированное к которому мы обращаемся через template-->
-<ng-template #template let-observer>
+<!-- <ng-template #template let-observer>
   <h2>Do you really want to delete this course</h2>
   <button size="m" tuiButton type="button" class="tui-space_right-3" (click)="onDeleteCourse();observer.complete()">
     Delete&nbsp;
@@ -61,4 +60,4 @@
   <button size="m" tuiButton type="button" (click)="observer.complete()">
     Cancel
   </button> 
-</ng-template>
+</ng-template> -->

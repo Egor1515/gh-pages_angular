@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.less',
+  templateUrl: './header.component.html'
 })
 export class HeaderComponent implements OnInit {
   userDisplayName: string = ''
@@ -32,6 +31,9 @@ export class HeaderComponent implements OnInit {
     this.userDisplayName = userLogin
 
     return this.userDisplayName
+  }
+  navigateHomePage(){
+    return '/home'
   }
 
   logout() {

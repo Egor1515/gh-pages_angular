@@ -1,12 +1,14 @@
-<header>
-  <div class="header_block">
+<header class="bg-white drop-shadow w-full">
+  <div class="w-11/12 my-0 mx-auto flex justify-between items-center">
     <div class="left-block">
-      <img class="logo" src="../../assets/logo.png" alt="Coursenta logo"/>
+      <a class="cursor-pointer" routerLink="/">
+        <img src="../../assets/logo.png" alt="Coursenta logo" />
+      </a>
     </div>
-    <div class="right-block">
-      <button class="nick-name" tuiButton size="l" appearance="none" [style.color]="'#1B1F3BCC'">
-        <tui-icon class="starIcon" [style.color]="'var(--tui-primary)'" icon="tuiIconStar"> </tui-icon>
-        <ng-container *ngIf="userDisplayName" class="userName">{{ userDisplayName }}</ng-container>
+    <div class="flex items-center">
+      <button tuiButton size="l" appearance="none" [style.color]="'#1B1F3BCC'">
+        <tui-icon class="mr-5" [style.color]="'var(--tui-primary)'" icon="tuiIconStar"> </tui-icon>
+        <ng-container *ngIf="userDisplayName" class="text-black hover:cursor-pointer opacity-75">{{ userDisplayName }}</ng-container>
       </button>
       <a href="#" tuiLink [routerLink]="getRouterLink()" [style.color]="'var(--tui-primary)'" (click)="logout()">
         <tui-icon icon="tuiIconCheckSquareLarge"> </tui-icon>

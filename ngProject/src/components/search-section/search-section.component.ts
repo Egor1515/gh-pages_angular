@@ -6,7 +6,6 @@ import { SearchService } from '../../services/search.service';
 @Component({
   selector: 'app-search-section',
   templateUrl: './search-section.component.html',
-  styleUrls: ['./search-section.component.less'],
 })
 export class SearchSectionComponent {
   readonly inputValue: string = '';
